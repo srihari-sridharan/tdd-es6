@@ -636,9 +636,7 @@ Try attempting this problem using TDD, as a clue consider using the `getLetterCo
 
 Tests for checking anagrams.
 
-{format:JavaScript}
-
-```
+```JavaScript
 // anagram.test.js
 import { areAnagrams } from './anagram';
 import { expect } from 'chai';
@@ -672,9 +670,7 @@ describe('Testing to check if two strings are anagrams:', () => {
 
 The code below lists the implementation.
 
-{format: JavaScript}
-
-```
+```JavaScript
 // anagram.js
 import _ from 'underscore';
 import { getLetterCount } from './letter-count';
