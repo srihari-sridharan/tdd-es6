@@ -717,3 +717,22 @@ PS C:\tdd-es6> npm run test
 ```
 
 Hope the above content served as gentle introduction to the TDD approach. Thanks for reading.
+
+## Integration Tests
+
+Integration tests ensure that all the units work correctly when integrated. Example: consider the pipelines to transfer water or oil, the individual pipes are tested to be leak free (unit tests) however while building a long pipeline, we need  to ensure that the individual pipes are connected such that, there are no leaks! Working in isolation (unit tests) will not guarantee that our code will work when assembled.
+
+In TDD integration tests guide us in the development of more complex systems. The integration tests have the same red - green - refactor cycle as unit tests, that said, it encompasses smaller unit testing cycles for red - green - refactor.
+
+Test doubles are used in integration testing to make the tests faster when we interact with I/O boundaries (e.g. database). If tests are not faster, we will spend time running tests. Test doubles are fake version of operations or services, that execute much quickly. Our code will make calls to these test doubles. We can make test doubles of our own software. Simple rule of thumbb - 'Don't mock what you don't own!'
+
+There are two categories of integration tests. 
+1. **Single Service Integration Tests** - Tests single piece, or 'service' of your application end to end, independent of other pieces. Note that these types of integration tests are suceptible to outside change. There is a possiblity that the external dependency changes and the tests still pass, but will fail in production when integrated.
+2. **Boundary Integration Tests** - These tests, test the communication between different pieces of your application. We should not use test doubles for bounday integration tests. This ensures that the integration works as expected in real circumstances. Bounday tests are slower, but they are going to be fewer in number than the 'single service integration tests'.
+
+## JavaScript Libraries for Integration Testing
+
+* Mocha
+* Chai
+* Sinon
+* Supertest
