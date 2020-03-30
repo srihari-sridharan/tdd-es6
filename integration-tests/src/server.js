@@ -4,8 +4,13 @@ import db from "./db";
 const app = express();
 
 app.get("/users/:username", async (req, res) => {
-  const { username } = req.params;
-  res.json(await db.getUserByUsername(username));
+  try {
+    const { username } = req.params;
+    const data = await db.getUserByUsername(username);
+    res.json(data);
+  } catch (e) {
+    res.status(500).json(e);
+  }
 });
 
 export { app };
