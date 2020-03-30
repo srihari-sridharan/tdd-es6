@@ -50,4 +50,17 @@ describe("getUserByUsername", () => {
       .to.deep.equals(expected);
     expect(finalDBState).to.deep.equals(fakeData);
   });
+
+  it("returns null when user is not found", async () => {
+    await setDatabaseData("users", [
+      {
+        id: "999",
+        username: "xyz",
+        email: "nobody@gmail.com"
+      }
+    ]);
+
+    const actual = await getUserByUsername("def");
+    expect(actual).to.be.null;
+  });
 });
