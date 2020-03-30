@@ -739,3 +739,4 @@ There are two categories of integration tests.
 - Supertest
 - Regenerator-Runtime - This is required for mocha to support async and await.
 - Chai-Exclude - helps us exlude the \_id property returned by mongo (in data that is fetched from database.)
+- npm install -g win-node-env
