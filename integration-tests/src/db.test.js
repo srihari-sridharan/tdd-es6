@@ -6,7 +6,11 @@ import {
   resetDatabase
 } from "./test-helpers";
 
-describe("getUseerByUsername", () => {
+describe("getUserByUsername", () => {
+  afterEach("Reset the database", async () => {
+    await resetDatabase();
+  });
+
   it("get the correct user given the username", async () => {
     // Fake data
     const fakeData = [
@@ -30,8 +34,6 @@ describe("getUseerByUsername", () => {
     // Get the final database state - use this to compare
     // against the data that we inserted.
     const finalDBState = await getDatabaseData("users");
-
-    await resetDatabase();
 
     const expected = {
       id: 123,
