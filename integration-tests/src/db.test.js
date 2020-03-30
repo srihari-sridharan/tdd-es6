@@ -1,21 +1,13 @@
-import { MongoClient } from "mongodb";
 import { expect } from "chai";
 import { getUserByUsername } from "./db";
+import {
+  setDatabaseData,
+  getDatabaseData,
+  resetDatabase
+} from "./test-helpers";
 
 describe("getUseerByUsername", () => {
   it("get the correct user given the username", async () => {
-    // Create the database client
-    const client = await MongoClient.connect(
-      `mongodb://localhost:27017/TEST_DB`,
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-      }
-    );
-
-    // Get reference to the database.
-    const db = client.db("TEST_DB");
-
     // Fake data
     const fakeData = [
       {
@@ -30,26 +22,16 @@ describe("getUseerByUsername", () => {
       }
     ];
 
-    // Insert fake data into database.
-    await db.collection("users").insertMany(fakeData);
+    await setDatabaseData("users", fakeData);
 
     // Get the data
     const actual = await getUserByUsername("abc");
 
     // Get the final database state - use this to compare
     // against the data that we inserted.
-    const finalDBState = await db
-      .collection("users")
-      .find()
-      .toArray();
+    const finalDBState = await getDatabaseData("users");
 
-    // Drop database before the assertions to ensure
-    // that database is dropped irrespective of the
-    // assertion result.
-    await db.dropDatabase();
-
-    // Close client
-    client.close();
+    await resetDatabase();
 
     const expected = {
       id: 123,
