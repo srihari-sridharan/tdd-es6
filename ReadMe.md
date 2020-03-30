@@ -740,3 +740,9 @@ There are two categories of integration tests.
 - Regenerator-Runtime - This is required for mocha to support async and await.
 - Chai-Exclude - helps us exlude the \_id property returned by mongo (in data that is fetched from database.)
 - npm install -g win-node-env
+
+## Refactoring integration tests
+
+- Use test helpers to simplify the tests.
+- Use afterEach() to reset the database between tests.
+

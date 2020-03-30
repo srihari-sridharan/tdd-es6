@@ -1,3 +1,4 @@
+// These tests are example of boundary tests.
 import { expect } from "chai";
 import { getUserByUsername } from "./db";
 import {

@@ -22,6 +22,7 @@
     "@babel/register": "^7.8.6",
     "chai-exclude": "^2.0.2",
     "regenerator-runtime": "^0.13.5",
+    "sinon": "^9.0.1",
     "supertest": "^4.0.2"
   }
 }
