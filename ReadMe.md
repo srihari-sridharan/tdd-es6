@@ -746,3 +746,6 @@ There are two categories of integration tests.
 - Use test helpers to simplify the tests.
 - Use afterEach() to reset the database between tests.
 
+## Code coverage
+
+Use NYC for code coverage.
